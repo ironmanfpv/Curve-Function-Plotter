@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Function Plotter 101</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Graph Function Plotter 101</h1>
+    </header>
+
+    <div class="main-container">
+        <!-- Controls Side -->
+        <div class="control-panel">
+
+            <!-- Axes Configuration -->
+            <div class="section">
+                <h2>1. Configure Axes</h2>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group">
+                            <label>X Min</label>
+                            <input type="number" id="x-min" value="-10">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <label>X Max</label>
+                            <input type="number" id="x-max" value="10">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group">
+                            <label>Y Min</label>
+                            <input type="number" id="y-min" value="-10">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <label>Y Max</label>
+                            <input type="number" id="y-max" value="10">
+                        </div>
+                    </div>
+                </div>
+                <button id="btn-update-axes">Update Axes</button>
+            </div>
+
+            <!-- Function Input -->
+            <div class="section">
+                <h2>2. Define Function</h2>
+                <div style="margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
+                    Define <b>y</b> in terms of <b>x</b>. <br>
+                    Available variables: <code>x, a, b, c, d, e</code> <br>
+                    <em>Example: <code>a*x^2 + b*x + c</code></em>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group"><label>a</label><input type="number" id="coeff-a" value="1" step="0.1">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group"><label>b</label><input type="number" id="coeff-b" value="0" step="0.1">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group"><label>c</label><input type="number" id="coeff-c" value="0" step="0.1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group"><label>d</label><input type="number" id="coeff-d" value="0" step="0.1">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group"><label>e</label><input type="number" id="coeff-e" value="0" step="0.1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Function Equation (y = )</label>
+                    <input type="text" id="function-input" value="a*x^2 + b*x + c"
+                        style="font-family: monospace; font-size: 1rem; padding: 0.5rem; width: 100%;">
+                </div>
+
+                <button id="btn-gen-table">Generate Table & Plot</button>
+            </div>
+
+            <!-- Table of Values -->
+            <div class="section">
+                <h2>3. Table of Values</h2>
+                <div class="table-container">
+                    <table id="values-table">
+                        <thead>
+                            <tr>
+                                <th>x</th>
+                                <th>y</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Generated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <button id="btn-trace" class="btn-outline" style="margin-top:1rem;">4. Trace Points</button>
+            </div>
+
+        </div>
+
+        <!-- Graph Area -->
+        <div class="graph-panel" id="canvas-container">
+            <canvas id="graph-canvas"></canvas>
+            <div class="coordinates-display" id="coords-display">x: 0, y: 0</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
